@@ -1,0 +1,8 @@
+
+tasks:
+  unit-test:
+    runner: razorci/openjdk
+    steps:
+    - commands:
+      - mvn dependency:go-offline # gets the project dependencies
+      - mvn package
