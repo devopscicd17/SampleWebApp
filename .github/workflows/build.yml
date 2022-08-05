@@ -34,3 +34,19 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=devopscicd17_SampleWebApp
+        
+        on:
+  schedule:
+    # Runs every day At 01:00.
+    - cron:  '0 1 * * *'
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: OWASP ZAP Scan
+    steps:
+      - name: ZAP Scan
+        uses: zaproxy/action-baseline@v0.3.0
+        with:
+          target: 'https://demo.testfire.net/'
+
