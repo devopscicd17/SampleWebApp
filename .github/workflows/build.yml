@@ -40,7 +40,7 @@ jobs:
     # Runs every day At 01:00.
     - cron:  '0 1 * * *'
 
-jobs:
+#jobs:
   zap_scan:
     runs-on: ubuntu-latest
     name: OWASP ZAP Scan
