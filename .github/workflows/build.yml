@@ -35,13 +35,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=devopscicd17_SampleWebApp
         
-      - name: OWASP ZAP Full Scan
-        uses: zaproxy/action-full-scan@v0.4.0
-       
-         with:
-         target: 'https://www.zaproxy.org/'
-
-        
+          
            
             
     
